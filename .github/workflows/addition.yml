@@ -1,0 +1,27 @@
+name: Add Two Numbers
+
+# Triggered manually via GitHub UI with input fields for two numbers
+on:
+  workflow_dispatch:
+    inputs:
+      number1:
+        description: 'First number'
+        required: true
+        default: '0'
+      number2:
+        description: 'Second number'
+        required: true
+        default: '0'
+
+jobs:
+  add-numbers:
+    name: Add Two Numbers
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Add Numbers
+      run: |
+        number1=${{ github.event.inputs.number1 }}
+        number2=${{ github.event.inputs.number2 }}
+        sum=$((number1 + number2))
+        echo "The sum of $number1 and $number2 is: $sum"
