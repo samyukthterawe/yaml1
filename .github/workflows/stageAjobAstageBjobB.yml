@@ -1,0 +1,23 @@
+name: CI Workflow
+
+# Trigger: You can add triggers like push or pull request
+on:
+  push:
+    branches:
+      - main  # Trigger this workflow on push to the main branch
+  workflow_dispatch:  # Allow manual triggers via GitHub UI
+
+jobs:
+  jobA:
+    name: Job A
+    runs-on: windows-latest  # This runs on a Windows machine
+    steps:
+      - name: Echo Job A
+        run: echo "Job A in Stage A"
+
+  jobB:
+    name: Job B
+    runs-on: ubuntu-latest  # This runs on an Ubuntu machine
+    steps:
+      - name: Echo Job B
+        run: echo "Job B in Stage B"
